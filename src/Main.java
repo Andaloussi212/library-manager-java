@@ -12,7 +12,6 @@ public class Main {
       System.out.println("1 - Ajouter un livre");
       System.out.println("2 - Lister les livres");
       System.out.println("3 - Rechercher un livre");
-      System.out.println("3 - Rechercher un livre");
       System.out.println("4 - Supprimer un livre");
       System.out.println("0 - Quitter");
 

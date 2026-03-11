@@ -7,6 +7,8 @@ Application console permettant de gérer une bibliothèque.
 
 - Ajouter un livre
 - Lister les livres
+- Rechercher un livre
+- Supprimer un livre
 - Menu interactif
 
 ## Compilation

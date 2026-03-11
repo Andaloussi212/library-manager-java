@@ -11,6 +11,9 @@ public class Main {
       System.out.println("==========MENU==========");
       System.out.println("1 - Ajouter un livre");
       System.out.println("2 - Lister les livres");
+      System.out.println("3 - Rechercher un livre");
+      System.out.println("3 - Rechercher un livre");
+      System.out.println("4 - Supprimer un livre");
       System.out.println("0 - Quitter");
 
       choix = sc.nextInt();
@@ -41,7 +44,40 @@ public class Main {
             System.out.println(livre2);
         }
       }
-    } else if (choix != 0) {
+    } else if (choix == 3){
+        boolean trouve = false;
+        System.out.println("Veuillez entrez l'ID du livre recherché");
+        int id = sc.nextInt();
+        for (Livre livre3 : listeLivre) {
+          if (livre3.getId() == id) {
+            trouve = true;
+            System.out.println(livre3);
+            break;
+          }
+        }
+        if (!trouve) {
+          System.out.println("Erreur : Livre innexistant...");
+        }
+
+      } else if (choix == 4) {
+        boolean trouve = false;
+        System.out.println("Veuillez entrez l'ID du livre que vous voulez supprimer");
+        int id = sc.nextInt();
+        for (int i = 0; i < listeLivre.size(); i++) {
+          Livre livre4 = listeLivre.get(i);
+          if (livre4.getId() == id) {
+            listeLivre.remove(i);
+            System.out.println("Livre supprimé avec succès !");
+            trouve = true;
+            break;
+          }
+        }
+        if (!trouve) {
+          System.out.println("Erreur : Livre innexistant...");
+        }
+
+
+      } else if (choix != 0) {
     System.out.println("Choix invalide");
     }
     } while (choix != 0);

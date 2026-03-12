@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    ArrayList<Livre> listeLivre = new ArrayList<>();
+    Bibliotheque bibliotheque = new Bibliotheque();
 
     int choix;
     do  {
@@ -30,50 +30,22 @@ public class Main {
 
         sc.nextLine();
 
-        int id = listeLivre.size() + 1;
+        int id = bibliotheque.prochainID;
         Livre nouveauLivre = new Livre(id, titre, auteur, annee);
-        listeLivre.add(nouveauLivre);
+        bibliotheque.ajouterLivre(nouveauLivre);
 
         System.out.println("Livre ajouté !");
       } else if (choix == 2) {
-        if (listeLivre.isEmpty()) {
-          System.out.println("Il n'y a aucun livre dans la bibliothèque");
-        } else {
-          for (Livre livre2 : listeLivre) {
-            System.out.println(livre2);
-        }
-      }
+          bibliotheque.afficherLivres();
     } else if (choix == 3){
-        boolean trouve = false;
         System.out.println("Veuillez entrez l'ID du livre recherché");
         int id = sc.nextInt();
-        for (Livre livre3 : listeLivre) {
-          if (livre3.getId() == id) {
-            trouve = true;
-            System.out.println(livre3);
-            break;
-          }
-        }
-        if (!trouve) {
-          System.out.println("Erreur : Livre innexistant...");
-        }
+        bibliotheque.rechercherLivre(id);
 
       } else if (choix == 4) {
-        boolean trouve = false;
         System.out.println("Veuillez entrez l'ID du livre que vous voulez supprimer");
         int id = sc.nextInt();
-        for (int i = 0; i < listeLivre.size(); i++) {
-          Livre livre4 = listeLivre.get(i);
-          if (livre4.getId() == id) {
-            listeLivre.remove(i);
-            System.out.println("Livre supprimé avec succès !");
-            trouve = true;
-            break;
-          }
-        }
-        if (!trouve) {
-          System.out.println("Erreur : Livre innexistant...");
-        }
+        bibliotheque.supprimerLivre(id);
 
 
       } else if (choix != 0) {
